@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bch1t8hc5ro6a"]
+
+[ext_resource type="FontFile" uid="uid://xyboln205rlh" path="res://Font/alagard/alagard.ttf" id="1_tfhq5"]
+[ext_resource type="Script" path="res://HUD/Scripts/hud.gd" id="1_wmmof"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmmof")
+
+[node name="Canva" type="CanvasLayer" parent="."]
+
+[node name="coins" type="Label" parent="Canva"]
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 133.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("1_tfhq5")
+theme_override_font_sizes/font_size = 50
+text = "00
+"

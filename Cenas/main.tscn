@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7mwblhbvgxjw"]
+
+[ext_resource type="PackedScene" uid="uid://4t3f4r5mcoaf" path="res://Objetos/player.tscn" id="1_60y42"]
+[ext_resource type="PackedScene" uid="uid://btmam20x2vqf3" path="res://Objetos/coin.tscn" id="2_rpynr"]
+[ext_resource type="PackedScene" uid="uid://bch1t8hc5ro6a" path="res://HUD/hud.tscn" id="3_oxnss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k0y1"]
+size = Vector2(1201, 105)
+
+[node name="Main" type="Node2D"]
+auto_translate_mode = 1
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="Col" type="CollisionShape2D" parent="Body"]
+position = Vector2(566, 597)
+shape = SubResource("RectangleShape2D_4k0y1")
+
+[node name="Player" parent="." instance=ExtResource("1_60y42")]
+position = Vector2(100, 482)
+doublejump = false
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("2_rpynr")]
+position = Vector2(313, 193)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("2_rpynr")]
+position = Vector2(416, 193)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("2_rpynr")]
+position = Vector2(1057, 193)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("2_rpynr")]
+position = Vector2(825, 226)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("2_rpynr")]
+position = Vector2(671, 229)
+
+[node name="HUD" parent="." instance=ExtResource("3_oxnss")]

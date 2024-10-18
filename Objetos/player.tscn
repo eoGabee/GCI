@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4t3f4r5mcoaf"]
+[gd_scene load_steps=4 format=3 uid="uid://4t3f4r5mcoaf"]
 
 [ext_resource type="Script" path="res://Objetos/Scripts/player.gd" id="1_yitrk"]
+[ext_resource type="Texture2D" uid="uid://yxr1gxjx42rj" path="res://Midia/PH.png" id="2_200tj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhgwx"]
 size = Vector2(32, 44)
@@ -10,8 +11,14 @@ script = ExtResource("1_yitrk")
 velocidade = 300.0
 gravidade = 50.0
 aceleracao = 0.1
+aceleracao_parada = 0.2
 impulso_vertical = 400.0
-doublejump = true
+doublejump_ = true
 
 [node name="Col" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fhgwx")
+
+[node name="Textute" type="Sprite2D" parent="."]
+position = Vector2(0.499997, 0.499999)
+scale = Vector2(0.796875, 0.734375)
+texture = ExtResource("2_200tj")

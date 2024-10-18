@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://btmam20x2vqf3"]
+[gd_scene load_steps=4 format=3 uid="uid://btmam20x2vqf3"]
 
 [ext_resource type="Script" path="res://Objetos/Scripts/coin.gd" id="1_asrqt"]
+[ext_resource type="Texture2D" uid="uid://2eqr6nq54duv" path="res://Midia/Tilemap/PH.png" id="2_46d0x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1lu4"]
 
@@ -13,5 +14,10 @@ shape = SubResource("CircleShape2D_d1lu4")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 14)
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("2_46d0x")
 
 [connection signal="body_entered" from="." to="." method="body_on"]

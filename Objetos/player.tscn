@@ -11,6 +11,7 @@ script = ExtResource("1_yitrk")
 velocidade = 300.0
 gravidade = 50.0
 aceleracao = 0.1
+aceleracao_aerea = 0.5
 aceleracao_parada = 0.2
 impulso_vertical = 400.0
 doublejump_ = true
@@ -22,3 +23,14 @@ shape = SubResource("RectangleShape2D_fhgwx")
 position = Vector2(0.499997, 0.499999)
 scale = Vector2(0.796875, 0.734375)
 texture = ExtResource("2_200tj")
+
+[node name="Cam" type="Camera2D" parent="."]
+position = Vector2(0, -182)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = 1.0
+drag_top_margin = 0.3
+drag_bottom_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true

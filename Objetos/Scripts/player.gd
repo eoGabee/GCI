@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var impulso_vertical:float
 var check_pulo = true
 
+@export var arma:int  # 1-espada
+
 @export var doublejump_ = false
 var can_doubleJump = true
 
@@ -28,7 +30,7 @@ func movimentacao_horizontal():
 		PlayerData.side = direcao
 
 func movimentacao_vertical():
-	var checar_input = Input.is_action_just_pressed("cima")
+	var _checar_input = Input.is_action_just_pressed("cima")
 	doublejump()
 	pulo_base()
 	
@@ -51,8 +53,23 @@ func pulo_base():
 	if checar_input and check_pulo == true:
 		velocity.y = -impulso_vertical*2
 
-func _process(delta: float) -> void:
+func ataque():
+	var anim = $Anim
+	if Input.is_action_just_pressed("Ataque"):
+		match arma:
+			1:
+				anim.play("ataque_espada")
+
+func trocaLado_Hitbox():
+	if PlayerData.side == 1:
+		$HitBox_espada.position.x = 31
+	elif PlayerData.side == -1:
+		$"HitBox_espada".position.x = -31
+
+func _process(_delta: float) -> void:
 	move_and_slide()
 	movimentacao_vertical()
 	movimentacao_horizontal()
+	trocaLado_Hitbox()
+	ataque()
 	velocity.y += gravidade

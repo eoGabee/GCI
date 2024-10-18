@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c43xe5415m0f4"]
+
+[ext_resource type="Script" path="res://Objetos/Scripts/porta.gd" id="1_4cbg3"]
+[ext_resource type="Texture2D" uid="uid://ck3nlhpvm2lwi" path="res://Midia/Tilemap/PH_0002.png" id="2_bnvbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkfvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ccf"]
+size = Vector2(22, 22)
+
+[node name="Porta" type="StaticBody2D"]
+script = ExtResource("1_4cbg3")
+
+[node name="Col" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rkfvu")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Col" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_s1ccf")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("2_bnvbq")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

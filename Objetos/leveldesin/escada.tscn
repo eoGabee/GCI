@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://8kbn0k8mgdwp"]
+
+[ext_resource type="Texture2D" uid="uid://ck3nlhpvm2lwi" path="res://Assets/Midia/Tilemap/PH_0002.png" id="1_q5ved"]
+[ext_resource type="Script" path="res://Objetos/Scripts/leveldesin/escada.gd" id="1_va2wy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrh7h"]
+size = Vector2(0.082945, 127.621)
+
+[node name="Escada" type="StaticBody2D"]
+scale = Vector2(0.389972, 1.0586)
+script = ExtResource("1_va2wy")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(60.6727, 13.5749)
+rotation = -1.34801
+scale = Vector2(0.0427615, 1.97897)
+texture = ExtResource("1_q5ved")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Col" type="CollisionShape2D" parent="."]
+position = Vector2(60.826, 13.4131)
+rotation = -1.34827
+scale = Vector2(32.592, 1)
+shape = SubResource("RectangleShape2D_hrh7h")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi6hxu6b11k6c"]
+
+[ext_resource type="Script" path="res://Objetos/Scripts/objetos/key.gd" id="1_lhcgt"]
+[ext_resource type="Texture2D" uid="uid://bcwlaee4hr2xu" path="res://icon.svg" id="2_0fw2a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5br7h"]
+
+[node name="key" type="Area2D"]
+scale = Vector2(2.1552, 2.1552)
+script = ExtResource("1_lhcgt")
+
+[node name="Col" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5br7h")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(0.132813, 0.132813)
+texture = ExtResource("2_0fw2a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

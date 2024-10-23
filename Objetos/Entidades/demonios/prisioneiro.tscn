@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cec1j1sognrev"]
+
+[ext_resource type="Script" path="res://Objetos/Scripts/entidades/demonios/prisioneiro.gd" id="1_g0ya0"]
+[ext_resource type="Texture2D" uid="uid://yxr1gxjx42rj" path="res://Assets/Midia/entidades/PH.png" id="2_wjgn7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uh7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_050op"]
+
+[node name="Prisioneiro" type="CharacterBody2D"]
+script = ExtResource("1_g0ya0")
+velocidade = 100.0
+gravidade = 80.0
+aceleracao = 0.1
+
+[node name="Texture" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(0.5, 9.53674e-07)
+scale = Vector2(0.703125, 0.71875)
+texture = ExtResource("2_wjgn7")
+
+[node name="Col" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_3uh7t")
+
+[node name="Campo_de_visao" type="Area2D" parent="."]
+
+[node name="Col" type="CollisionShape2D" parent="Campo_de_visao"]
+position = Vector2(88, -14)
+scale = Vector2(-6.50097, -6.50097)
+shape = SubResource("RectangleShape2D_050op")
+
+[connection signal="body_entered" from="Campo_de_visao" to="." method="_on_campo_de_visao_body_entered"]
